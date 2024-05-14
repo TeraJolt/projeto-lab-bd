@@ -9,8 +9,8 @@ CREATE TABLE tb_cliente(
     email VARCHAR(100),
     cpf_cnpj VARCHAR(14),
     rg VARCHAR(9),
-    telefone VARCHAR(10),
-    celular VARCHAR(11),
+    telefone VARCHAR(15),
+    celular VARCHAR(15),
     data_nasc DATE,
     salario NUMERIC(12,2)
 ) engine INNODB;
@@ -26,16 +26,16 @@ CREATE TABLE tb_vendedor(
 	endereco VARCHAR(150),
 	cidade VARCHAR(50),
 	estado VARCHAR(2),
-	celular VARCHAR(11),
+	celular VARCHAR(15),
 	email VARCHAR(160),
-	perc_comissao NUMERIC(4,2)
+	perc_comissao NUMERIC(5,2)
 ) engine INNODB;
  
 CREATE TABLE tb_produto(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR(100),
 	qtde_estoque INTEGER,
-	preco NUMERIC(6,2),
+	preco NUMERIC(10,2),
 	unidade_medida VARCHAR(20),
 	promocao CHAR(3) -- SIM ou NÃO
 ) engine INNODB;
@@ -46,7 +46,7 @@ CREATE TABLE tb_pedido(
     id_cliente INTEGER REFERENCES tb_cliente(id),
     observacao VARCHAR(100),
     forma_pagto INTEGER REFERENCES tb_forma_pagto(id),
-    prazo_entrega VARCHAR(12),
+    prazo_entrega VARCHAR(20),
     id_vendedor INTEGER REFERENCES tb_vendedor(id)
 ) engine INNODB;
 
@@ -56,4 +56,3 @@ CREATE TABLE tb_itens_pedido(
     qtde INTEGER,
     id_item INTEGER AUTO_INCREMENT PRIMARY KEY
 ) engine INNODB;
-
