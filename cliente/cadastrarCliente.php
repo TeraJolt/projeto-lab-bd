@@ -49,15 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <label>Cidade<input type="text" maxlength="100" name="cidade"></label>
         <select name="estado">
             <option value="" disabled selected>-</option>
-            <option value="ac">AC</option><option value="al">AL</option><option value="ap">AP</option>
-            <option value="am">AM</option><option value="ba">BA</option><option value="ce">CE</option>
-            <option value="df">DF</option><option value="es">ES</option><option value="go">GO</option>
-            <option value="ma">MA</option><option value="mt">MT</option><option value="ms">MS</option>
-            <option value="mg">MG</option><option value="pa">PA</option><option value="pb">PB</option>
-            <option value="pr">PR</option><option value="pe">PE</option><option value="pi">PI</option>                    
-            <option value="rj">RJ</option><option value="rn">RN</option><option value="rs">RS</option>
-            <option value="ro">RO</option><option value="rr">RR</option><option value="sc">SC</option>
-            <option value="sp">SP</option><option value="se">SE</option><option value="to">TO</option>
+            <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option>                    
+            <option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
         </select></label>
         <label>Email<input type="email" maxlength="100" name="email"></label>
         <label>CPF/CNPJ<input type="text" maxlength="14" name="cpf_cnpj"></label>
