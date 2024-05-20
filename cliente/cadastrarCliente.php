@@ -40,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente</title>
 </head>
+<?php include('../navbar.php')?>
 <body>
+    <h1>Cadastrar Cliente</h1>
     <form method="POST">
         <label>Nome<input type="text" maxlength="100" name="nome"></label>
         <label>Endereco<input type="text" maxlength="100" name="endereco"></label>

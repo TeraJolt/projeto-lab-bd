@@ -47,9 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar'])) {
 
     mysqli_close($con);
 
-    header("Location: consultaCliente.php");
+    header("Location: consultarCliente.php");
 } elseif ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['cancelar'])) {
-    header("Location: consultaCliente.php");
+    header("Location: consultarCliente.php");
     exit;
 }
 ?>

@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Exibir de Produto</title>
     </head>
+    <?php include('../navbar.php')?>
     <body>
         <h1>Exibir de Produto</h1>
 

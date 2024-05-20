@@ -63,10 +63,10 @@
 
             mysqli_close($con);
 
-            header("Location: exibirProduto.php");
+            header("Location: consultarProduto.php");
 
         }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cancelar'])) {
-            header("Location: exibirProduto.php");
+            header("Location: consultarProduto.php");
             exit;
         }
     ?>

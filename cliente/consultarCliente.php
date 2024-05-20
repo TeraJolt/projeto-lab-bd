@@ -1,3 +1,5 @@
+<?php include('../navbar.php')?>
+<h1>Consultar Clientes</h1>
 <form> 
     <table>
         <tr>
@@ -11,8 +13,8 @@
             while ($reg=mysqli_fetch_array($resu)) {
                 echo "<tr class='linha'><td class='id'>".$reg['id']."</td>";
                 echo "<td class='nome'>".$reg['nome']."</td>";                        
-                echo "<td class='editar'><a href='alteraCliente.php?id=".$reg['id']."' class='txtEditEditar'>Editar</a></td>";
-                echo "<td class='excluir'><a href='deletaCliente.php?id=".$reg['id']."' class='txtEditExcluir'>Excluir 🗑</a></td></tr>";
+                echo "<td class='editar'><a href='atualizarCliente.php?id=".$reg['id']."' class='txtEditEditar'>Editar</a></td>";
+                echo "<td class='excluir'><a href='excluirCliente.php?id=".$reg['id']."' class='txtEditExcluir'>Excluir 🗑</a></td></tr>";
             }
         ?>
     </table>    
