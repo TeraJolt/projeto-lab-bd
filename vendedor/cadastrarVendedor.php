@@ -6,6 +6,7 @@
     <title>Cadastro Vendedor</title>
     
 </head>
+<?php include('../navbar.php')?>
 <body>
     <?php
         if ($_SERVER["REQUEST_METHOD"]=="POST"){
