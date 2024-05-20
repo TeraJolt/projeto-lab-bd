@@ -1,3 +1,22 @@
+<?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sim'])){
+            include('../conexao.php');
+            $id = $_POST['id'];
+            $query = "DELETE FROM tb_vendedor WHERE id = '$id'";
+            $result = mysqli_query($con,$query);
+            if ($result){
+                echo "Vendedor excluído com Sucesso!";
+            } else{
+                echo "Erro ao excluir o Vendedor: ".mysqli_error($con);
+            }
+            mysqli_close($con);
+            header("Location: consultarVendedor.php");
+        }elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nao'])){
+            header("Location: consultarVendedor.php");
+            exit;
+        }
+    ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,6 +26,7 @@
 </head>
 <body>
     <h1>Excluir Vendedor</h1>
+    <?php include('../navbar.php') ?>
     <?php
         if(isset($_GET['id'])){
             include('../conexao.php');
@@ -45,24 +65,6 @@
             mysqli_close($con);
         }else{
             echo "ID do Vendedor não especificado.";
-        }
-    ?>
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sim'])){
-            include('../conexao.php');
-            $id = $_POST['id'];
-            $query = "DELETE FROM tb_vendedor WHERE id = '$id'";
-            $result = mysqli_query($con,$query);
-            if ($result){
-                echo "Vendedor excluído com Sucesso!";
-            } else{
-                echo "Erro ao excluir o Vendedor: ".mysqli_error($con);
-            }
-            mysqli_close($con);
-            header("Location: consultarVendedor.php");
-        }elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nao'])){
-            header("Location: consultarVendedor.php");
-            exit;
         }
     ?>
 </body>

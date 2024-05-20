@@ -29,11 +29,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro de Produto</title>
     </head>
-    <?php include('../navbar.php')?>
     <body>
         <h1>Cadastro de Produto</h1>
-
-        <?php include('menu.php') ?>
+        <?php include('../navbar.php') ?>
 
         <form method="post">
             <label> Nome: <input type="text" maxlength="100" name="nome" id="nome"> </label><br>

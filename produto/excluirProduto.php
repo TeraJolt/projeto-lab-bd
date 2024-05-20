@@ -1,3 +1,28 @@
+<?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar'])) {
+            include('../conexao.php');
+
+            $id = $_POST["id"];
+
+            $query = "DELETE FROM tb_produto WHERE id = $id";
+
+            $resultado = mysqli_query($con, $query);
+
+            if($resultado) {
+                echo "Produto excluída com sucesso!";
+            }else{
+                echo "Erro ao excluir a produto: ".mysqli_error($con);
+            }
+
+            mysqli_close($con);
+
+            header("Location: consultarProduto.php");
+
+        }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cancelar'])) {
+            header("Location: consultarProduto.php");
+            exit;
+        }
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,8 +32,7 @@
 </head>
 <body>
     <h1>Excluir produto</h1>
-
-    <?php include('menu.php') ?>
+    <?php include('../navbar.php') ?>
 
     <?php
         if(isset($_GET['id'])){
@@ -43,31 +67,6 @@
             mysqli_close($con);
         }else{
             echo "ID do produto não especificado";
-        }
-    ?>
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar'])) {
-            include('../conexao.php');
-
-            $id = $_POST["id"];
-
-            $query = "DELETE FROM tb_produto WHERE id = $id";
-
-            $resultado = mysqli_query($con, $query);
-
-            if($resultado) {
-                echo "Produto excluída com sucesso!";
-            }else{
-                echo "Erro ao excluir a produto: ".mysqli_error($con);
-            }
-
-            mysqli_close($con);
-
-            header("Location: consultarProduto.php");
-
-        }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cancelar'])) {
-            header("Location: consultarProduto.php");
-            exit;
         }
     ?>
 </body>

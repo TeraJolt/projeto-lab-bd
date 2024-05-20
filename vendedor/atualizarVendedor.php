@@ -45,6 +45,7 @@
             $row = mysqli_fetch_assoc($result);
     ?>
     <h1>Atualizar Vendedor</h1>
+    <?php include('../navbar.php') ?>
     <form method="POST">
         <p><label><input type="hidden" name="id" value="<?php echo $row['id'];?>"></label></p>
         <p><label>Nome: <input type="text" name="nome" size="50" maxlength="100" required value="<?php echo $row['nome'];?>"></label></p>

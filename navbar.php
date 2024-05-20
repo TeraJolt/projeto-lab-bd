@@ -66,6 +66,9 @@
             .box{
                 height: 30px;
             }
+            h1{
+                margin:3em 0 0 0;
+            }
         </style>";
 
     // Conteudo da Navbar
@@ -92,6 +95,13 @@
                     <div class='dropdown-content'>
                         <a href='../produto/cadastrarProduto.php'>Cadastro</a>
                         <a href='../produto/consultarProduto.php'>Consulta</a>
+                    </div>
+                </li>
+                <li class='dropdown'>
+                    <a href='javascript:void(0)' class='dropbtn'>Relatório</a>
+                    <div class='dropdown-content'>
+                        <a href='../.php'>Pedido</a>
+                        <a href='../.php'>Comissão</a>
                     </div>
                 </li>
             </ul></div>";

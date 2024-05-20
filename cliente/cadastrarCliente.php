@@ -1,36 +1,36 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    include('../conexao.php');
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        include('../conexao.php');
 
-    $nome=$_POST['nome'];
-    $endereco=$_POST['endereco'];
-    $numero=$_POST['numero'];    
-    $bairro=$_POST['bairro'];
-    $cidade=$_POST['cidade'];
-    $estado=strtoupper($_POST['estado']);
-    $email=$_POST['email'];
-    $cpf_cnpj=$_POST['cpf_cnpj'];
-    $rg=$_POST['rg'];    
-    $telefone=$_POST['telefone'];
-    $celular=$_POST['celular'];
-    $data_nasc=$_POST['data_nasc'];
-    $salario=$_POST['salario'];
+        $nome=$_POST['nome'];
+        $endereco=$_POST['endereco'];
+        $numero=$_POST['numero'];    
+        $bairro=$_POST['bairro'];
+        $cidade=$_POST['cidade'];
+        $estado=strtoupper($_POST['estado']);
+        $email=$_POST['email'];
+        $cpf_cnpj=$_POST['cpf_cnpj'];
+        $rg=$_POST['rg'];    
+        $telefone=$_POST['telefone'];
+        $celular=$_POST['celular'];
+        $data_nasc=$_POST['data_nasc'];
+        $salario=$_POST['salario'];
 
-    $query="INSERT INTO tb_cliente (nome,endereco,numero,bairro,cidade,estado,email,cpf_cnpj,rg,telefone,celular,
-    data_nasc,salario) VALUES
-    ('$nome','$endereco','$numero','$bairro','$cidade','$estado','$email','$cpf_cnpj','$rg','$telefone','$celular',
-    '$data_nasc','$salario')";
+        $query="INSERT INTO tb_cliente (nome,endereco,numero,bairro,cidade,estado,email,cpf_cnpj,rg,telefone,celular,
+        data_nasc,salario) VALUES
+        ('$nome','$endereco','$numero','$bairro','$cidade','$estado','$email','$cpf_cnpj','$rg','$telefone','$celular',
+        '$data_nasc','$salario')";
 
-    $resu=mysqli_query($con,$query);
+        $resu=mysqli_query($con,$query);
 
-    if (mysqli_insert_id($con)) {
-        echo "<br><font color=blue> Inclusão realizada com sucesso !!</font>";
-    } else {
-        echo "<br><font color=red> ERRO: Inclusão não realizada !!</font>";
+        if (mysqli_insert_id($con)) {
+            echo "<br><font color=blue> Inclusão realizada com sucesso !!</font>";
+        } else {
+            echo "<br><font color=red> ERRO: Inclusão não realizada !!</font>";
+        }
+
+        mysqli_close($con);
     }
-
-    mysqli_close($con);
-}
 ?>
 
 <!DOCTYPE html>
@@ -40,16 +40,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente</title>
 </head>
-<?php include('../navbar.php')?>
 <body>
     <h1>Cadastrar Cliente</h1>
+    <?php include('../navbar.php') ?>
     <form method="POST">
-        <label>Nome<input type="text" maxlength="100" name="nome"></label>
-        <label>Endereco<input type="text" maxlength="100" name="endereco"></label>
-        <label>Número<input type="text" maxlength="10" name="numero"></label>
-        <label>Bairro<input type="text" maxlength="100" name="bairro"></label>
-        <label>Cidade<input type="text" maxlength="100" name="cidade"></label>
-        <select name="estado">
+        <p><label>Nome<input type="text" maxlength="100" name="nome"></label></p>
+        <p><label>Endereco<input type="text" maxlength="100" name="endereco"></label></p>
+        <p><label>Número<input type="text" maxlength="10" name="numero"></label></p>
+        <p><label>Bairro<input type="text" maxlength="100" name="bairro"></label></p>
+        <p><label>Cidade<input type="text" maxlength="100" name="cidade"></label></p>
+        <p><label>Estado
+            <select name="estado">
             <option value="" disabled selected>-</option>
             <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option>
             <option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option>
@@ -60,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option>
             <option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option>
             <option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
-        </select></label>
-        <label>Email<input type="email" maxlength="100" name="email"></label>
-        <label>CPF/CNPJ<input type="text" maxlength="14" name="cpf_cnpj"></label>
-        <label>RG<input type="text" maxlength="9" name="rg"></label>
-        <label>Telefone<input type="text" maxlength="10" name="telefone"></label>
-        <label>Celular<input type="text" maxlength="11" name="celular"></label>
-        <label>Data de Nascimento<input type="date" name="data_nasc"></label>
-        <label>Salário<input type="number" step="200" name="salario"></label>
+        </select></label></p>
+        <p><label>Email<input type="email" maxlength="100" name="email"></label></p>
+        <p><label>CPF/CNPJ<input type="text" maxlength="14" name="cpf_cnpj"></label></p>
+        <p><label>RG<input type="text" maxlength="9" name="rg"></label></p>
+        <p><label>Telefone<input type="text" maxlength="10" name="telefone"></label></p>
+        <p><label>Celular<input type="text" maxlength="11" name="celular"></label></p>
+        <p><label>Data de Nascimento<input type="date" name="data_nasc"></label></p>
+        <p><label>Salário<input type="number" name="salario"></label></p>
         
         <input type="reset" value="Limpar">
         <input type="submit" value="Cadastrar">
