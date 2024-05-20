@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Vendedor</title>
 </head>
+<?php include('../navbar.php')?>
 <body>
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['atualizar'])){
