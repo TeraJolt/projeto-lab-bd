@@ -13,6 +13,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Pedido</title>
+    
+    <script>    
+        function addItem(){
+            var divItem = document.getElementById("itens");
+            fetch('getProdutos.php')
+                .then(response =>response.json())
+                .then(data => {
+                    let select =document.createElement('select');
+
+                    data.forEach(item => {
+                        let option = document.createElement('option');
+                        option.value = item.id;
+                        option.textContent = item.nome;
+                        select.appendChild(option);
+                    });
+                    divItem.appendChild(select);
+                })
+        }
+    </script>
 </head>
 <body>
     <h1>Cadastro de Pedidos</h1>
@@ -21,7 +40,10 @@
             <script>
                 var dataAtual = new Date();
                 var campoData = document.getElementById('date');
-                campoData.value = dataAtual.toISOString().substring(0,10);
+                var dataRec = dataAtual.toLocaleDateString('pt-BR');
+                var dataFormatada = dataRec.substring(6,10)+"-"+dataRec.substring(3,5)+"-"+dataRec.substring(0,2);
+                campoData.value = dataFormatada;
+                //campoData.value = dataAtual.toISOString().substring(0,10);
             </script>
         </label></p>
         <p><label>Cliente: <select name="id_cliente">
@@ -68,6 +90,23 @@
             <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
             <?php } mysqli_close($con);?>        
         </select></label></p>
+        <div id="itens"><label for="item_1">Itens do pedido:
+            <select name="id_produto[]" id="select">
+                <?php
+                    include("../conexao.php");
+                    $id_vendedor = $row['id'];
+                    $query="SELECT * FROM tb_produto ORDER BY nome;";
+                    $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
+                ?>
+                <option value="" disabled selected>---</option>
+                <?php
+                    while($reg = mysqli_fetch_assoc($resu)){
+                ?>
+                <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
+                <?php } mysqli_close($con);?> 
+            </select>
+        </label></div>
+        <button type="button" onClick="addItem()">Adicionar Produto</button>
         <label><input type="submit" value="Enviar"></label>
         <label><input type="reset" value="Limpar"></label>
     </form>
