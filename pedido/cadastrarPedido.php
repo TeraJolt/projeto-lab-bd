@@ -1,6 +1,5 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
-        include("../conexao.php");
         $data_ped=$_POST["data_ped"];
         $id_cliente=$_POST["id_cliente"];
         $observacao=$_POST["observacao"];
@@ -8,7 +7,29 @@
         $prazo_entrega=$_POST["prazo_entrega"];
         $id_vendedor=$_POST["id_vendedor"];
         $id_produto=$_POST["id_produto"];
+        $qtde=$_POST["qtde"];
 
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        include("../conexao.php");
+        mysqli_begin_transaction($con) or die(mysqli_connect_error());
+        try{
+            $query = "INSERT INTO tb_pedido (data_ped, id_cliente, observacao, forma_pagto, prazo_entrega, id_vendedor)
+            VALUES ('$data_ped', '$id_cliente', '$observacao', '$forma_pagto', '$prazo_entrega', '$id_vendedor')";
+            $result = mysqli_query($con,$query);
+            $id_pedido = mysqli_insert_id($con);
+            for($i = 0; $i < count($id_produto); $i++){
+                $query_item = "INSERT INTO tb_itens_pedido (id_pedido, id_produto, qtde) VALUES ('$id_pedido','$id_produto[$i]',$qtde[$i])";
+                $resu1 = mysqli_query($con,$query_item);
+            }
+            mysqli_commit($con);
+            echo "<p>Pedido cadastrado com sucesso</p>";
+
+        }
+        catch(mysqli_sql_exception $exeption){
+            mysqli_rollback($con);
+            echo "<p>Pedido não foi cadastrado</p>".$exeption;
+        }
+        mysqli_close($con);
     }
 ?>
 <!DOCTYPE html>
@@ -33,7 +54,7 @@
                         let option = document.createElement('option');
                         option.value = item.id;
                         option.textContent = item.nome;
-                        select.name = "id_produto[]"
+                        select.name = "id_produto[]";
                         select.appendChild(option);
                     });
                     divItem.appendChild(select);
@@ -45,7 +66,7 @@
 <body>
     <h1>Cadastro de Pedidos</h1>
     <form method="POST">
-        <p><label>Data: <input type="date" name="data_ped" id="date" disabled>
+        <p><label>Data: <input type="date" name="data_ped" id="date">
             <script>
                 var dataAtual = new Date();
                 var campoData = document.getElementById('date');
@@ -69,7 +90,7 @@
             <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
             <?php } mysqli_close($con);?>
         </select></label></p>
-        <p><label>Observação: <input type="text" nome="observacao" size="30" maxlength="100"></label></p>
+        <p><label>Observação: <input type="text" name="observacao" size="30" maxlength="100"></label></p>
         <p><label>Forma de Pagamento: <select name="forma_pagto">
             <?php
                 include("../conexao.php");
@@ -84,7 +105,7 @@
             <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
             <?php } mysqli_close($con);?>
         </select></label></p>
-        <p><label>Prazo de entrega: <input type="text" nome="prazo_entrega" size="20" maxlength="20"></label></p>
+        <p><label>Prazo de entrega: <input type="text" name="prazo_entrega" size="20" maxlength="20"></label></p>
         <p><label>Vendedor: <select name="id_vendedor">
             <?php
                 include("../conexao.php");
@@ -118,7 +139,7 @@
             </label>
         </div>
         <div id="quantidades">
-        <label><input type="number" name="qtde[]"></label>
+        <label>Quantidade: <input type="number" name="qtde[]"></label>
         </div>
         
         <button type="button" onClick="addItem()">Adicionar Produto</button>
