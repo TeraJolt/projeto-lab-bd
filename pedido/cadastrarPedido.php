@@ -1,10 +1,14 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         include("../conexao.php");
-        $data_ped=$_POST['data_ped'];
-        $id_cliente=$_POST['id_cliente'];
-        $observacao=$_POST['observacao'];
-        
+        $data_ped=$_POST["data_ped"];
+        $id_cliente=$_POST["id_cliente"];
+        $observacao=$_POST["observacao"];
+        $forma_pagto=$_POST["forma_pagto"];
+        $prazo_entrega=$_POST["prazo_entrega"];
+        $id_vendedor=$_POST["id_vendedor"];
+        $id_produto=$_POST["id_produto"];
+
     }
 ?>
 <!DOCTYPE html>
@@ -17,18 +21,23 @@
     <script>    
         function addItem(){
             var divItem = document.getElementById("itens");
+            var divQtde = document.getElementById("quantidades");
+            var input = document.createElement("input");
+            input.type = "number";
+            input.name = "qtde[]";
             fetch('getProdutos.php')
                 .then(response =>response.json())
                 .then(data => {
                     let select =document.createElement('select');
-
                     data.forEach(item => {
                         let option = document.createElement('option');
                         option.value = item.id;
                         option.textContent = item.nome;
+                        select.name = "id_produto[]"
                         select.appendChild(option);
                     });
                     divItem.appendChild(select);
+                    divQtde.appendChild(input);
                 })
         }
     </script>
@@ -90,22 +99,28 @@
             <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
             <?php } mysqli_close($con);?>        
         </select></label></p>
-        <div id="itens"><label for="item_1">Itens do pedido:
-            <select name="id_produto[]" id="select">
-                <?php
-                    include("../conexao.php");
-                    $id_vendedor = $row['id'];
-                    $query="SELECT * FROM tb_produto ORDER BY nome;";
-                    $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
-                ?>
-                <option value="" disabled selected>---</option>
-                <?php
-                    while($reg = mysqli_fetch_assoc($resu)){
-                ?>
-                <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
-                <?php } mysqli_close($con);?> 
-            </select>
-        </label></div>
+        <div id="itens">
+            <label for="item_1">Itens do pedido:
+                <select name="id_produto[]" id="select">
+                    <?php
+                        include("../conexao.php");
+                        $id_vendedor = $row['id'];
+                        $query="SELECT * FROM tb_produto ORDER BY nome;";
+                        $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
+                    ?>
+                    <option value="" disabled selected>---</option>
+                    <?php
+                        while($reg = mysqli_fetch_assoc($resu)){
+                    ?>
+                    <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
+                    <?php } mysqli_close($con);?> 
+                </select>
+            </label>
+        </div>
+        <div id="quantidades">
+        <label><input type="number" name="qtde[]"></label>
+        </div>
+        
         <button type="button" onClick="addItem()">Adicionar Produto</button>
         <label><input type="submit" value="Enviar"></label>
         <label><input type="reset" value="Limpar"></label>
