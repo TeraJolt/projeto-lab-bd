@@ -38,7 +38,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Pedido</title>
-    
     <script>    
         function addItem(){
             var divItem = document.getElementById("itens");
@@ -63,6 +62,7 @@
         }
     </script>
 </head>
+<?php include('../navbar.php')?>
 <body>
     <h1>Cadastro de Pedidos</h1>
     <form method="POST">
@@ -120,28 +120,23 @@
             <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
             <?php } mysqli_close($con);?>        
         </select></label></p>
-        <div id="itens">
-            <label for="item_1">Itens do pedido:
-                <select name="id_produto[]" id="select">
-                    <?php
-                        include("../conexao.php");
-                        $id_vendedor = $row['id'];
-                        $query="SELECT * FROM tb_produto ORDER BY nome;";
-                        $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
-                    ?>
-                    <option value="" disabled selected>---</option>
-                    <?php
-                        while($reg = mysqli_fetch_assoc($resu)){
-                    ?>
-                    <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
-                    <?php } mysqli_close($con);?> 
-                </select>
-            </label>
-        </div>
-        <div id="quantidades">
-        <label>Quantidade: <input type="number" name="qtde[]"></label>
-        </div>
-        
+        <div id="itens"><label for="item_1">Itens do pedido:
+            <select name="id_produto[]" id="select">
+                <?php
+                    include("../conexao.php");
+                    $id_vendedor = $row['id'];
+                    $query="SELECT * FROM tb_produto ORDER BY nome;";
+                    $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
+                ?>
+                <option value="" disabled selected>---</option>
+                <?php
+                    while($reg = mysqli_fetch_assoc($resu)){
+                ?>
+                <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
+                <?php } mysqli_close($con);?> 
+            </select>
+        </label></div>
+        <div id="quantidades"><label>Quantidade: <input type="number" name="qtde[]"></label></div>    
         <button type="button" onClick="addItem()">Adicionar Produto</button>
         <label><input type="submit" value="Enviar"></label>
         <label><input type="reset" value="Limpar"></label>
