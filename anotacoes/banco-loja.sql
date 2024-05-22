@@ -30,7 +30,7 @@ CREATE TABLE tb_vendedor(
 	email VARCHAR(160),
 	perc_comissao NUMERIC(5,2)
 ) engine INNODB;
- 
+
 CREATE TABLE tb_produto(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR(100),
