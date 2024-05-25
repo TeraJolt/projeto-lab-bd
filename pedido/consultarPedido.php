@@ -19,7 +19,7 @@
             ORDER BY p.data_ped";
             $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
             // echo"
-            // <tr>
+            // <fieldset><table width='100%' border='1px'><tr>
             //     <th>Data</th>
             //     <th>Cliente</th>
             //     <th>Observação</th>
@@ -30,21 +30,38 @@
         ?>
         <?php
             while($reg = mysqli_fetch_array($resu)){
-                echo"
-                <fieldset><table width='100%'><tr>
-                    <td><b>Data:</b></td>
+                echo"<fieldset><table width='100%' border='1px'><tr>
+                <th>Data</th>
+                <th>Cliente</th>
+                <th>Observação</th>
+                <th>Forma de Pagamento</th>
+                <th>Prazo de Entrega</th>
+                <th>Vendedor</th>
+                </tr>
+                <tr>
                     <td>".$reg['data_ped']."</td>
-                    <td><b>Cliente:</b></td>
                     <td>".$reg['cliente']."</td>
-                    <td><b>Observação:</b></td>
                     <td>".$reg['observacao']."</td>
-                    <td><b>Forma de Pagamento:</b></td>
                     <td>".$reg['forma_pagto']."</td>
-                    <td><b>Prazo de Entrega:</b></td>
                     <td>".$reg['prazo_entrega']."</td>
-                    <td><b>Vendedor:</b></td>
                     <td>".$reg['vendedor']."</td>
-                </tr></table></fieldset>";
+                </tr></table>";
+                $query2="SELECT p.nome as nome_produto, ip.qtde as quantidade FROM tb_itens_pedido ip 
+                INNER JOIN tb_produto p ON ip.id_produto = p.id WHERE ip.id_pedido = ".$reg['pedido_id']." ORDER BY nome_produto";
+                $resu2=mysqli_query($con,$query2) or die(mysqli_connect_error());
+                echo "
+                <table border='1px'><tr>
+                    <th>Nome do produto</th>
+                    <th>Quantidade</th>
+                </tr>";
+                while($reg2 = mysqli_fetch_array($resu2)){
+                    echo "
+                    <tr>
+                        <td>".$reg2['nome_produto']."</td>
+                        <td>".$reg2['quantidade']."</td>
+                    </tr>";
+                }
+                echo "</table></fieldset>";
             }
         ?>
     </form>

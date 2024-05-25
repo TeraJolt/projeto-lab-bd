@@ -66,12 +66,15 @@
 <body>
     <h1>Cadastro de Pedidos</h1>
     <form method="POST">
-        <p><label>Data: <input type="date" name="data_ped" id="date">
+        <p><label>Data: 
+            <input type="date" name="data_ped" id="date">
+            <!-- <input type="text" name="data_ped" id="date"> -->
             <script>
                 var dataAtual = new Date();
                 var campoData = document.getElementById('date');
                 var dataRec = dataAtual.toLocaleDateString('pt-BR');
                 var dataFormatada = dataRec.substring(6,10)+"-"+dataRec.substring(3,5)+"-"+dataRec.substring(0,2);
+                // campoData.value = dataRec;
                 campoData.value = dataFormatada;
                 //campoData.value = dataAtual.toISOString().substring(0,10);
             </script>
@@ -120,7 +123,7 @@
             <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
             <?php } mysqli_close($con);?>        
         </select></label></p>
-        <div id="itens"><label for="item_1">Itens do pedido:
+        <p id="itens"><label for="item_1">Itens do pedido:
             <select name="id_produto[]" id="select">
                 <?php
                     include("../conexao.php");
@@ -135,8 +138,8 @@
                 <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
                 <?php } mysqli_close($con);?> 
             </select>
-        </label></div>
-        <div id="quantidades"><label>Quantidade: <input type="number" name="qtde[]"></label></div>    
+        </label></p>
+        <p id="quantidades"><label>Quantidade: <input type="number" name="qtde[]"></label></p>    
         <button type="button" onClick="addItem()">Adicionar Produto</button>
         <label><input type="submit" value="Enviar"></label>
         <label><input type="reset" value="Limpar"></label>
