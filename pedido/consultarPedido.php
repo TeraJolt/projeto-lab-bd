@@ -37,6 +37,7 @@
                 <th>Forma de Pagamento</th>
                 <th>Prazo de Entrega</th>
                 <th>Vendedor</th>
+                <th>Opções<th>
                 </tr>
                 <tr>
                     <td>".$reg['data_ped']."</td>
@@ -45,6 +46,9 @@
                     <td>".$reg['forma_pagto']."</td>
                     <td>".$reg['prazo_entrega']."</td>
                     <td>".$reg['vendedor']."</td>
+                    <td width='10%'><table border='1' width='100%'><tr>
+                        <td><a href='excluirPedido.php?pedido_id=".$reg['pedido_id']."'>Excluir</td>
+                    </tr></table></td>
                 </tr></table>";
                 $query2="SELECT p.nome as nome_produto, ip.qtde as quantidade FROM tb_itens_pedido ip 
                 INNER JOIN tb_produto p ON ip.id_produto = p.id WHERE ip.id_pedido = ".$reg['pedido_id']." ORDER BY nome_produto";
