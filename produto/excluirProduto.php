@@ -8,8 +8,6 @@
 <body>
     <h1>Excluir produto</h1>
 
-    <?php include('menu.php') ?>
-
     <?php
         if(isset($_GET['id'])){
             include('../conexao.php');

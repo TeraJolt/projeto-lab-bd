@@ -33,8 +33,6 @@
     <body>
         <h1>Cadastro de Produto</h1>
 
-        <?php include('menu.php') ?>
-
         <form method="post">
             <label> Nome: <input type="text" maxlength="100" name="nome" id="nome"> </label><br>
             <label> Quantidade em estoque: <input type="number" name="qtde" id="qtde"> </label><br>

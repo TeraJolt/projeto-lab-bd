@@ -11,8 +11,6 @@
     <body>
         <h1>Exibir de Produto</h1>
 
-        <?php include('menu.php') ?>
-
         <form method="post">
             <table>
                 <?php

@@ -112,21 +112,21 @@ INSERT INTO tb_produto (nome, qtde_estoque, preco, unidade_medida, promocao) VAL
 
 -- Inserindo vendas
 INSERT INTO tb_pedido (data_ped, id_cliente, observacao, forma_pagto, prazo_entrega, id_vendedor) VALUES 
-    ('2024-05-20', 1, 'Pedido urgente', 1, '2 dias úteis', 1), -- Pedido 1
-    ('2024-05-20', 2, 'Pedido padrão', 2, '1 semana', 2), -- Pedido 2
-    ('2024-05-20', 3, 'Pedido especial', 1, '3 dias úteis', 3), -- Pedido 3
-    ('2024-05-20', 4, 'Pedido corporativo', 3, '5 dias úteis', 1), -- Pedido 4
-    ('2024-05-20', 5, 'Pedido VIP', 1, '1 dia útil', 2), -- Pedido 5
-    ('2024-05-20', 1, 'Pedido regular', 2, '4 dias úteis', 3), -- Pedido 6
-    ('2024-05-20', 2, 'Pedido padrão', 3, '2 semanas', 1), -- Pedido 7
+    ('2024-01-20', 1, 'Pedido urgente', 1, '2 dias úteis', 1), -- Pedido 1
+    ('2024-01-20', 2, 'Pedido padrão', 2, '1 semana', 2), -- Pedido 2
+    ('2024-01-20', 3, 'Pedido especial', 1, '3 dias úteis', 3), -- Pedido 3
+    ('2024-02-20', 4, 'Pedido corporativo', 3, '5 dias úteis', 1), -- Pedido 4
+    ('2024-03-20', 5, 'Pedido VIP', 1, '1 dia útil', 2), -- Pedido 5
+    ('2024-03-20', 1, 'Pedido regular', 2, '4 dias úteis', 3), -- Pedido 6
+    ('2024-04-20', 2, 'Pedido padrão', 3, '2 semanas', 1), -- Pedido 7
     ('2024-05-20', 3, 'Pedido especial', 1, '3 dias úteis', 2), -- Pedido 8
-    ('2024-05-20', 4, 'Pedido corporativo', 2, '7 dias úteis', 3), -- Pedido 9
-    ('2024-05-20', 5, 'Pedido VIP', 3, '1 dia útil', 1), -- Pedido 10
-    ('2024-05-20', 1, 'Pedido regular', 1, '5 dias úteis', 2), -- Pedido 11
-    ('2024-05-20', 2, 'Pedido padrão', 2, '3 semanas', 3), -- Pedido 12
-    ('2024-05-20', 3, 'Pedido especial', 3, '4 dias úteis', 1), -- Pedido 13
-    ('2024-05-20', 4, 'Pedido corporativo', 1, '10 dias úteis', 2), -- Pedido 14
-    ('2024-05-20', 5, 'Pedido VIP', 2, '1 dia útil', 3); -- Pedido 15
+    ('2024-06-20', 4, 'Pedido corporativo', 2, '7 dias úteis', 3), -- Pedido 9
+    ('2024-07-20', 5, 'Pedido VIP', 3, '1 dia útil', 1), -- Pedido 10
+    ('2024-07-20', 1, 'Pedido regular', 1, '5 dias úteis', 2), -- Pedido 11
+    ('2024-08-20', 2, 'Pedido padrão', 2, '3 semanas', 3), -- Pedido 12
+    ('2024-08-20', 3, 'Pedido especial', 3, '4 dias úteis', 1), -- Pedido 13
+    ('2024-10-20', 4, 'Pedido corporativo', 1, '10 dias úteis', 2), -- Pedido 14
+    ('2024-12-20', 5, 'Pedido VIP', 2, '1 dia útil', 3); -- Pedido 15
 
 
 -- Inserindo produtos vendidos
