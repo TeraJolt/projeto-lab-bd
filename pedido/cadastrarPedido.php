@@ -68,15 +68,12 @@
     <form method="POST">
         <p><label>Data: 
             <input type="date" name="data_ped" id="date">
-            <!-- <input type="text" name="data_ped" id="date"> -->
             <script>
                 var dataAtual = new Date();
                 var campoData = document.getElementById('date');
                 var dataRec = dataAtual.toLocaleDateString('pt-BR');
                 var dataFormatada = dataRec.substring(6,10)+"-"+dataRec.substring(3,5)+"-"+dataRec.substring(0,2);
-                // campoData.value = dataRec;
-                campoData.value = dataFormatada;
-                //campoData.value = dataAtual.toISOString().substring(0,10);
+                campoData.value = dataFormatada;                
             </script>
         </label></p>
         <p><label>Cliente: <select name="id_cliente">

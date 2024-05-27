@@ -34,18 +34,18 @@
         <h1>Cadastro de Produto</h1>
 
         <form method="post">
-            <label> Nome: <input type="text" maxlength="100" name="nome" id="nome"> </label><br>
-            <label> Quantidade em estoque: <input type="number" name="qtde" id="qtde"> </label><br>
-            <label> Preço: <input type="number" name="preco" id="preco"> </label><br>
-            <label> Unidade de medida <input type="text" maxlength="20" name="medida" id="medida"> </label><br>
-            <label> 
-                Promoção 
+            <p><label>Nome: <input type="text" maxlength="100" name="nome" id="nome"> </label></p>
+            <p><label>Quantidade em estoque: <input type="number" name="qtde" id="qtde"> </label></p>
+            <p><label>Preço: <input type="number" name="preco" id="preco"> </label></p>
+            <p><label>Unidade de medida <input type="text" maxlength="20" name="medida" id="medida"> </label></p>
+            <p><label>Promoção:
                 <select name="promocao" id="promocao">
                     <option value="SIM"> Sim </option>
                     <option value="NAO"> Não </option>
-                </select> 
-            </label><br>
+                </select>
+            </label></p>
             <input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
         </form>
     </body>
 </html>
