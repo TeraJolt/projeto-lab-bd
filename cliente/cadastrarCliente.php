@@ -1,36 +1,36 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    include('../conexao.php');
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        include('../conexao.php');
 
-    $nome=$_POST['nome'];
-    $endereco=$_POST['endereco'];
-    $numero=$_POST['numero'];    
-    $bairro=$_POST['bairro'];
-    $cidade=$_POST['cidade'];
-    $estado=strtoupper($_POST['estado']);
-    $email=$_POST['email'];
-    $cpf_cnpj=$_POST['cpf_cnpj'];
-    $rg=$_POST['rg'];    
-    $telefone=$_POST['telefone'];
-    $celular=$_POST['celular'];
-    $data_nasc=$_POST['data_nasc'];
-    $salario=$_POST['salario'];
+        $nome=$_POST['nome'];
+        $endereco=$_POST['endereco'];
+        $numero=$_POST['numero'];    
+        $bairro=$_POST['bairro'];
+        $cidade=$_POST['cidade'];
+        $estado=strtoupper($_POST['estado']);
+        $email=$_POST['email'];
+        $cpf_cnpj=$_POST['cpf_cnpj'];
+        $rg=$_POST['rg'];    
+        $telefone=$_POST['telefone'];
+        $celular=$_POST['celular'];
+        $data_nasc=$_POST['data_nasc'];
+        $salario=$_POST['salario'];
 
-    $query="INSERT INTO tb_cliente (nome,endereco,numero,bairro,cidade,estado,email,cpf_cnpj,rg,telefone,celular,
-    data_nasc,salario) VALUES
-    ('$nome','$endereco','$numero','$bairro','$cidade','$estado','$email','$cpf_cnpj','$rg','$telefone','$celular',
-    '$data_nasc','$salario')";
+        $query="INSERT INTO tb_cliente (nome,endereco,numero,bairro,cidade,estado,email,cpf_cnpj,rg,telefone,celular,
+        data_nasc,salario) VALUES
+        ('$nome','$endereco','$numero','$bairro','$cidade','$estado','$email','$cpf_cnpj','$rg','$telefone','$celular',
+        '$data_nasc','$salario')";
 
-    $resu=mysqli_query($con,$query);
+        $resu=mysqli_query($con,$query);
 
-    if (mysqli_insert_id($con)) {
-        echo "<br><font color=blue> Inclusão realizada com sucesso !!</font>";
-    } else {
-        echo "<br><font color=red> ERRO: Inclusão não realizada !!</font>";
+        if (mysqli_insert_id($con)) {
+            echo "<br><font color=blue> Inclusão realizada com sucesso !!</font>";
+        } else {
+            echo "<br><font color=red> ERRO: Inclusão não realizada !!</font>";
+        }
+
+        mysqli_close($con);
     }
-
-    mysqli_close($con);
-}
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente</title>
 </head>
-<?php include('../navbar.php')?>
 <body>
     <h1>Cadastrar Cliente</h1>
+    <?php include('../navbar.php') ?>
     <form method="POST">
         <p><label>Nome: <input type="text" maxlength="100" name="nome" size="50"></label></p>
         <p><label>Endereço: <input type="text" maxlength="100" name="endereco" size="50"></label></p>

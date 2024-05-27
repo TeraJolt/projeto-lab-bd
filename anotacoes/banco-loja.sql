@@ -40,9 +40,9 @@ CREATE TABLE tb_produto(
 	promocao CHAR(3) -- SIM ou NÃO
 ) engine INNODB;
 
-CREATE TABLE tb_pedido(
+CREATE TABLE tb_venda(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    data_ped DATE,
+    data_venda DATE,
     id_cliente INTEGER REFERENCES tb_cliente(id),
     observacao VARCHAR(100),
     forma_pagto INTEGER REFERENCES tb_forma_pagto(id),
@@ -50,7 +50,7 @@ CREATE TABLE tb_pedido(
     id_vendedor INTEGER REFERENCES tb_vendedor(id)
 ) engine INNODB;
 
-CREATE TABLE tb_itens_pedido(
+CREATE TABLE tb_item_venda(
     id_pedido INTEGER REFERENCES tb_pedido(id),
     id_produto INTEGER REFERENCES tb_produto(id),
     qtde INTEGER,

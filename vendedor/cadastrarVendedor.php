@@ -6,7 +6,7 @@
     <title>Cadastro Vendedor</title>
     
 </head>
-<?php include('../navbar.php')?>
+
 <body>
     <?php
         if ($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -33,6 +33,7 @@
         }
     ?>
     <h1>Cadastro de Vendedor</h1>
+    <?php include('../navbar.php') ?>
     <form method="POST">
         <p><label>Nome: <input type="text" name="nome" size="50" maxlength="100" required></label></p>
         <p><label>Endereço: <input type="text" name="endereco" size="50" maxlength="150" required></label></p>
