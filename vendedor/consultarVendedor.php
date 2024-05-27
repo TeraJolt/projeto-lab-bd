@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Vendedor</title>
 </head>
-<?php include('../navbar.php')?>
 <body>
     <h1>Consulta Vendedor</h1>
+    <?php include('../navbar.php')?>
     <form method="POST">
         <table border="1" width="100%">
             <?php

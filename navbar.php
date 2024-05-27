@@ -66,6 +66,9 @@
             .box{
                 height: 30px;
             }
+            h1{
+                margin:3em 0 0 0;
+            }
         </style>";
 
     // Conteudo da Navbar

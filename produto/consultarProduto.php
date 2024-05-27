@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -7,16 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Exibir de Produto</title>
     </head>
-    <?php include('../navbar.php')?>
     <body>
         <h1>Exibir de Produto</h1>
+        <?php include('../navbar.php') ?>
+        <form>
+            <label>Filtrar por Nome:</label>
+            <input type="text" id="filtro_nome" name="filtro_nome">
+            <button type="submit">Filtrar</button>
+        </form>
 
         <form method="post">
             <table>
                 <?php
                     include('../conexao.php');
                     
-                    $query = "SELECT * FROM tb_produto ORDER BY nome";
+                    $query = "SELECT * FROM tb_produto ";
+
+                    if (isset($_GET['filtro_nome'])) {
+                        $filtro_nome = $_GET['filtro_nome'];
+                        $query .="WHERE nome LIKE '%$filtro_nome%'";
+                    }
+
+                    $query .= " ORDER BY nome";
                     $resultado = mysqli_query($con, $query) or die(mysqli_connect_error());
                     
                     echo "<tr>";
