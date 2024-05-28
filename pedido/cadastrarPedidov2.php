@@ -39,12 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Pedido</title>
     <script>    
-        function addItem(){
-            var divItem = document.getElementById("itens");
-            var divQtde = document.getElementById("quantidades");
-            var input = document.createElement("input");
-            input.type = "number";
-            input.name = "qtde[]";
+        function addItem(){    
             fetch('getProdutos.php')
                 .then(response =>response.json())
                 .then(data => {
@@ -56,9 +51,10 @@
                         select.name = "id_produto[]";
                         select.appendChild(option);
                     });
-                    divItem.appendChild(select);
-                    divQtde.appendChild(input);
                 })
+            var item = "<tr><td>"+rowItem.appendChild(select)+"</td>";
+                item += "<td>"+rowQtde.appendChild(input)+"</td></tr>";
+                
         }
     </script>
 </head>
