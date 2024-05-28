@@ -24,7 +24,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excluir Vendedor</title>
 </head>
-<?php include('../navbar.php')?>
 <body>
     <h1>Excluir Vendedor</h1>
     <?php include('../navbar.php') ?>
