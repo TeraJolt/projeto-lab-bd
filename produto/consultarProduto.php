@@ -30,11 +30,11 @@
                     $resultado = mysqli_query($con, $query) or die(mysqli_connect_error());
                     
                     echo "<tr>";
-                    echo "<td> <b> nome </b> </td>";
-                    echo "<td> <b> qtde_estoque </b> </td>";
-                    echo "<td> <b> preco </b> </td>";
-                    echo "<td> <b> unidade_medida </b> </td>";
-                    echo "<td> <b> promocao </b> </td>";
+                    echo "<td> <b> Nome </b> </td>";
+                    echo "<td> <b> Quantidade </b> </td>";
+                    echo "<td> <b> Preço </b> </td>";
+                    echo "<td> <b> Unidade de medida </b> </td>";
+                    echo "<td> <b> Promoção </b> </td>";
                     echo "</tr>";
                     
                     while ($registro = mysqli_fetch_array($resultado)){
