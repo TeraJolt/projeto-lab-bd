@@ -100,7 +100,7 @@
                 <li class='dropdown'>
                     <a href='javascript:void(0)' class='dropbtn'>Pedido</a>
                     <div class='dropdown-content'>
-                        <a href='../pedido/cadastrarPedido.php'>Cadastro</a>
+                        <a href='../pedido/cadastrarPedidov2.php'>Cadastro</a>
                         <a href='../pedido/consultarPedido.php'>Consulta</a>
                     </div>
                 </li>
