@@ -1,49 +1,74 @@
 <?php
-        include('../conexao.php');
+    include('../conexao.php');
 
-        $query = " SELECT p.id as pedido_id, p.data_ped, 
-        c.nome as cliente, p.observacao, 
-        fp.nome as forma_pagto, 
-        p.prazo_entrega, 
-        v.nome as vendedor FROM tb_pedido p 
-        INNER JOIN tb_cliente c ON c.id = p.id_cliente 
-        INNER JOIN tb_forma_pagto fp ON fp.id = p.forma_pagto 
-        INNER JOIN tb_vendedor v ON v.id = p.id_vendedor ";
+    $query = " SELECT p.id as pedido_id, p.data_ped, 
+    c.nome as cliente, p.observacao, 
+    fp.nome as forma_pagto, 
+    p.prazo_entrega, 
+    v.nome as vendedor FROM tb_pedido p 
+    INNER JOIN tb_cliente c ON c.id = p.id_cliente 
+    INNER JOIN tb_forma_pagto fp ON fp.id = p.forma_pagto 
+    INNER JOIN tb_vendedor v ON v.id = p.id_vendedor ";
 
-        $dt_init = $_GET['filtro_dt_init'];
-        $dt_final = $_GET['filtro_dt_final'];
-        if(!empty($dt_init) && !empty($dt_final)){
-            $query .= " WHERE p.data_ped >= '%$dt_init%' AND p.data_ped <= '%$dt_final%' ";
-        } 
+if(isset($_GET['filtro_dt_init']) && isset($_GET['filtro_dt_final'])){
+    $dt_init = $_GET['filtro_dt_init'];
+    $dt_final = $_GET['filtro_dt_final'];
+    if (!empty($dt_init) && !empty($dt_final)) {
+        $query .= " WHERE p.data_ped >= '$dt_init' AND p.data_ped <= '$dt_final' ";
+    }
+}
 
-        // $filtro_nome = $_GET['filtro_nome'];
-        // if(!empty($filtro_nome)){
-        //     echo "nome:$filtro_nome";
-        //     $query .= " AND WHERE c.nome LIKE '%$filtro_nome%' ";
-        // } 
+if (isset($_GET['filtro_nome']) && $_GET['filtro_nome'] != '') {
+    $filtro_nome = $_GET['filtro_nome'];
+    echo "nome: $filtro_nome";
+    $query.=" AND c.nome LIKE '%$filtro_nome%'";
+}
 
-        $query .= "ORDER BY p.data_ped";
-
-        $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
-    ?>
+    $query .= " ORDER BY p.data_ped";
+    $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Pedido</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .editar, .excluir {
+            text-align: center;
+        }
+        .editar a, .excluir a {
+            text-decoration: none;
+            color: blue;
+        }
+        .editar a:hover, .excluir a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Consulta Pedido</h1>
-    <form>
+    <form method="$_GET">
         <h2>Filtro por data</h2>
         <label>Data inicila:</label>
         <input type="text" id="filtro_dt_init" name="filtro_dt_init" ><br>
         <label>Data final:</label>
         <input type="text" id="filtro_dt_final" name="filtro_dt_final"><br>
-        <!-- <h2>Filtro por nome</h2>
-        <label>Nome do cliente:</label>
-        <input type="text" id="filtro_nome" name="filtro_nome"> -->
+        <h2>Filtro</h2>
+        <label>Nome do cliente: </label>
+        <input type="text" id="filtro_nome" name="filtro_nome" ><br>
         <button type="submit">Filtrar</button>
     </form>    
     
