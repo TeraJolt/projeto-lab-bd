@@ -38,25 +38,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Pedido</title>
-    <script>    
-        function addItem(){    
-            fetch('getProdutos.php')
-                .then(response =>response.json())
-                .then(data => {
-                    let select =document.createElement('select');
-                    data.forEach(item => {
-                        let option = document.createElement('option');
-                        option.value = item.id;
-                        option.textContent = item.nome;
-                        select.name = "id_produto[]";
-                        select.appendChild(option);
-                    });
-                })
-            var item = "<tr><td>"+rowItem.appendChild(select)+"</td>";
-                item += "<td>"+rowQtde.appendChild(input)+"</td></tr>";
-                
-        }
-    </script>
+    
 </head>
 <?php include('../navbar.php')?>
 <body>
@@ -119,52 +101,64 @@
             <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
             <?php } mysqli_close($con);?>        
         </select></label></p>
-        <!-- <p id="itens"><label for="item_1">Itens do pedido:
-            <select name="id_produto[]" id="select">
-                <?php
-                    include("../conexao.php");
-                    $id_vendedor = $row['id'];
-                    $query="SELECT * FROM tb_produto ORDER BY nome;";
-                    $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
-                ?>
-                <option value="" disabled selected>---</option>
-                <?php
-                    while($reg = mysqli_fetch_assoc($resu)){
-                ?>
-                <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
-                <?php } mysqli_close($con);?> 
-            </select>
-        </label></p>
-        <p id="quantidades"><label>Quantidade: <input type="number" name="qtde[]"></label></p>     
-        <button type="button" onClick="addItem()">Adicionar Produto</button>-->
-        <label for="item_1">
-            <table border='1px'>
-                <tr>
-                    <th>Itens do Pedido</th>
-                    <th>Quantidade</th>
-                </tr>
-                <tr>
-                    <td>
-                        <select name="id_produto[]" id="select">
-                            <?php
-                                include("../conexao.php");
-                                $id_vendedor = $row['id'];
-                                $query="SELECT * FROM tb_produto ORDER BY nome;";
-                                $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
-                            ?>
-                            <option value="" disabled selected>---</option>
-                            <?php
-                                while($reg = mysqli_fetch_assoc($resu)){
-                            ?>
-                            <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
-                            <?php } mysqli_close($con);?> 
-                        </select>
-                    </td>
-                    <td><input type="number" name="qtde[]"></td>
-                    <td><button type="button" onClick="addItem()">Adicionar Produto</button></td>
-                </tr>
-            </table>
-        </label>
+        <table border='1px' id="productTable">
+            <tr>
+                <th><label for="select">Itens do Pedido</label></th>
+                <th><label for="qtde">Quantidade</label></th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="id_produto[]" id="select">
+                        <?php
+                            include("../conexao.php");
+                            $id_vendedor = $row['id'];
+                            $query="SELECT * FROM tb_produto ORDER BY nome;";
+                            $resu=mysqli_query($con,$query) or die(mysqli_connect_error());
+                        ?>
+                        <option value="" disabled selected>---</option>
+                        <?php
+                            while($reg = mysqli_fetch_assoc($resu)){
+                        ?>
+                        <option value="<?php echo $reg['id'];?>"><?php echo $reg['nome'];?></option>
+                        <?php } mysqli_close($con);?> 
+                    </select>
+                </td>
+                <td><input type="number" name="qtde[]" min="1" value="1"></td>
+                <td><button type="button" onClick="addItem()">Adicionar Produto</button></td>
+            </tr>
+            <script>    
+                function addItem(){    
+                    var table =document.getElementById("productTable");
+                    var newRow = table.insertRow(-1);
+
+                    var selectCell =document.createElement("td");
+                    selectCell.innerHTML=document.querySelector("#select").parentElement.innerHTML;
+
+                    var quantityCell =document.createElement("td");
+                    var quantityInput =document.createElement("input");
+                    quantityInput.type = "number";
+                    quantityInput.name = "qtde[]";
+                    quantityInput.min = "1";
+                    quantityInput.value = "1";
+                    quantityCell.appendChild(quantityInput);
+
+                    var actionCell = document.createElement("td");
+                    var removeButton =document.createElement("button");
+                    removeButton.type = "button";
+                    removeButton.textContent = "Remover";
+                    removeButton.onclick =function(){
+                        var row = this.parentElement.parentElement;
+                        row.parentElement.removeChild(row);
+                    };
+                    actionCell.appendChild(removeButton);
+
+                    newRow.appendChild(selectCell);
+                    newRow.appendChild(quantityCell);
+                    newRow.appendChild(actionCell);
+                }
+
+            </script>
+        </table>
         <label><input type="submit" value="Enviar"></label>
         <label><input type="reset" value="Limpar"></label>
     </form>
