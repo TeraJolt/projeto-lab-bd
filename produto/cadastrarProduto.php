@@ -30,9 +30,12 @@
         <title>Cadastro de Produto</title>
     </head>
     <body>
+        
+        <?php include('../navbar.php');
+            $navBar = new NavBar;
+            $navBar->navBar();
+        ?>
         <h1>Cadastro de Produto</h1>
-        <?php include('../navbar.php') ?>
-
         <form method="post">
             <p><label>Nome: <input type="text" maxlength="100" name="nome" id="nome"> </label></p>
             <p><label>Quantidade em estoque: <input type="number" name="qtde" id="qtde"> </label></p>

@@ -41,8 +41,11 @@
     <title>Cliente</title>
 </head>
 <body>
+    <?php include('../navbar.php');
+        $navBar = new NavBar;
+        $navBar->navBar();
+    ?>
     <h1>Cadastrar Cliente</h1>
-    <?php include('../navbar.php') ?>
     <form method="POST">
         <p><label>Nome: <input type="text" maxlength="100" name="nome" size="50"></label></p>
         <p><label>Endereço: <input type="text" maxlength="100" name="endereco" size="50"></label></p>

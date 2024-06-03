@@ -6,10 +6,13 @@
     <title>Consulta Vendedor</title>
 </head>
 <body>
-    <h1>Consulta Vendedor</h1>
+    
     <?php 
         include('../navbar.php');
+        $navBar = new NavBar;
+        $navBar->navBar();
         include('tabelaVendedor.php');
-    ?>   
+    ?>
+    <h1>Consulta Vendedor</h1>   
 </body>
 </html>

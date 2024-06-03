@@ -40,7 +40,10 @@
 </head>
 <body>
     <h1>Excluir pedido</h1>
-    <?php include('../navbar.php') ?>
+    <?php include('../navbar.php');
+        $navBar = new NavBar;
+        $navBar->navBar();
+    ?>
     <?php
         if(isset($_GET['pedido_id'])){
             include('../conexao.php');

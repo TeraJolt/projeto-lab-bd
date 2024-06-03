@@ -31,9 +31,12 @@
     <title>Excluir produto</title>
 </head>
 <body>
+    
+    <?php include('../navbar.php');
+        $navBar = new NavBar;
+        $navBar->navBar();
+    ?>
     <h1>Excluir produto</h1>
-    <?php include('../navbar.php') ?>
-
     <?php
         if(isset($_GET['id'])){
             include('../conexao.php');

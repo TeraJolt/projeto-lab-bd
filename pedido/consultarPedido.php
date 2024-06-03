@@ -59,6 +59,11 @@ if (isset($_GET['filtro_nome']) && $_GET['filtro_nome'] != '') {
     </style>
 </head>
 <body>
+    <?php 
+        include('../navbar.php');
+        $navBar = new NavBar;
+        $navBar->navBar();
+    ?>
     <h1>Consulta Pedido</h1>
     <form method="$_GET">
         <h2>Filtro por data</h2>

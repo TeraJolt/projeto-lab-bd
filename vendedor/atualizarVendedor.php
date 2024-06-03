@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Vendedor</title>
 </head>
-<?php include('../navbar.php')?>
+<?php include('../navbar.php')
+    $navBar = new NavBar;
+    $navBar->navBar();
+?>
 <body>
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['atualizar'])){
@@ -45,8 +48,13 @@
             $result = mysqli_query($con,$query2);
             $row = mysqli_fetch_assoc($result);
     ?>
+    
+    <?php 
+        include('../navbar.php') 
+        $navBar = new NavBar;
+        $navBar->navBar();
+    ?>
     <h1>Atualizar Vendedor</h1>
-    <?php include('../navbar.php') ?>
     <form method="POST">
         <p><label><input type="hidden" name="id" value="<?php echo $row['id'];?>"></label></p>
         <p><label>Nome: <input type="text" name="nome" size="50" maxlength="100" required value="<?php echo $row['nome'];?>"></label></p>

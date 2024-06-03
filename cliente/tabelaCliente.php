@@ -1,6 +1,5 @@
 <?php
     echo "<table>";
-        include('../conexao.php');
         $resu = mysqli_query($con,$query) or die(mysqli_connect_error());
 
         echo "<tr>";
