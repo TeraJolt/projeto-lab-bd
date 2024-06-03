@@ -43,18 +43,18 @@ CREATE TABLE tb_produto(
 CREATE TABLE tb_pedido(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     data_ped DATE,
-    id_cliente INTEGER REFERENCES tb_cliente(id),
     observacao VARCHAR(100),
-    forma_pagto INTEGER REFERENCES tb_forma_pagto(id),
     prazo_entrega VARCHAR(20),
+    id_cliente INTEGER REFERENCES tb_cliente(id),    
+    forma_pagto INTEGER REFERENCES tb_forma_pagto(id),    
     id_vendedor INTEGER REFERENCES tb_vendedor(id)
 ) engine INNODB;
 
 CREATE TABLE tb_itens_pedido(
+    id_item INTEGER AUTO_INCREMENT PRIMARY KEY,
+    qtde INTEGER,    
     id_pedido INTEGER REFERENCES tb_pedido(id),
-    id_produto INTEGER REFERENCES tb_produto(id),
-    qtde INTEGER,
-    id_item INTEGER AUTO_INCREMENT PRIMARY KEY
+    id_produto INTEGER REFERENCES tb_produto(id)       
 ) engine INNODB;
 
 INSERT INTO tb_cliente (nome, endereco, numero, bairro, cidade, estado, email, cpf_cnpj, rg, telefone, celular, data_nasc, salario) VALUES 
