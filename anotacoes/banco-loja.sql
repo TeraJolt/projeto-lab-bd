@@ -1,33 +1,33 @@
 CREATE TABLE tb_cliente(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    endereco VARCHAR(100),
+    nome VARCHAR(50),
+    endereco VARCHAR(50),
     numero VARCHAR(10),
-    bairro VARCHAR(100),
-    cidade VARCHAR(100),
+    bairro VARCHAR(30),
+    cidade VARCHAR(30),
     estado CHAR(2),
-    email VARCHAR(100),
+    email VARCHAR(50),
     cpf_cnpj VARCHAR(14),
     rg VARCHAR(9),
-    telefone VARCHAR(15),
-    celular VARCHAR(15),
+    telefone VARCHAR(10),
+    celular VARCHAR(11),
     data_nasc DATE,
     salario NUMERIC(12,2)
 ) engine INNODB;
 
 CREATE TABLE tb_forma_pagto(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100)
+    nome VARCHAR(30)
 ) engine INNODB;
 
 CREATE TABLE tb_vendedor(
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-	nome VARCHAR(100),
-	endereco VARCHAR(150),
-	cidade VARCHAR(50),
+	nome VARCHAR(50),
+	endereco VARCHAR(50),
+	cidade VARCHAR(30),
 	estado VARCHAR(2),
-	celular VARCHAR(15),
-	email VARCHAR(160),
+	celular VARCHAR(11),
+	email VARCHAR(50),
 	perc_comissao NUMERIC(5,2)
 ) engine INNODB;
 
@@ -115,8 +115,8 @@ INSERT INTO tb_pedido (data_ped, id_cliente, observacao, forma_pagto, prazo_entr
     ('2024-01-20', 1, 'Pedido urgente', 1, '2 dias úteis', 1), -- Pedido 1
     ('2024-01-20', 2, 'Pedido padrão', 2, '1 semana', 2), -- Pedido 2
     ('2024-01-20', 3, 'Pedido especial', 1, '3 dias úteis', 3), -- Pedido 3
-    ('2024-02-20', 4, 'Pedido corporativo', 3, '5 dias úteis', 1), -- Pedido 4
-    ('2024-03-20', 5, 'Pedido VIP', 1, '1 dia útil', 2), -- Pedido 5
+    ('2024-02-20', 4, 'Pedido corporativo', 3, '5 dias úteis', 4), -- Pedido 4
+    ('2024-03-20', 5, 'Pedido VIP', 1, '1 dia útil', 5), -- Pedido 5
     ('2024-03-20', 1, 'Pedido regular', 2, '4 dias úteis', 3), -- Pedido 6
     ('2024-04-20', 2, 'Pedido padrão', 3, '2 semanas', 1), -- Pedido 7
     ('2024-05-20', 3, 'Pedido especial', 1, '3 dias úteis', 2), -- Pedido 8

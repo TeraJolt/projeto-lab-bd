@@ -76,49 +76,49 @@ if (isset($_GET['id'])) {
     <form method="POST">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">                
         <div class="formulario">
-            <p><label>Nome<input type="text" maxlength="100" name="nome" value="<?php echo $row['nome']; ?>"></label></p>
-            <p><label>Endereco<input type="text" maxlength="100" name="endereco" value="<?php echo $row['endereco']; ?>"></label></p>
-            <p><label>Número<input type="text" maxlength="10" name="numero" value="<?php echo $row['numero']; ?>"></label></p>
-            <p><label>Bairro<input type="text" maxlength="100" name="bairro" value="<?php echo $row['bairro']; ?>"></label></p>
-            <p><label>Cidade<input type="text" maxlength="100" name="cidade" value="<?php echo $row['cidade']; ?>"></label></p>           
-            <p><label>Estado
+            <p><label>Nome: <input type="text" maxlength="50" name="nome" size="50" value="<?php echo $row['nome']; ?>"></label></p>
+            <p><label>Endereço: <input type="text" maxlength="50" name="endereco" size="50" value="<?php echo $row['endereco']; ?>"></label></p>
+            <p><label>Número: <input type="text" maxlength="10" name="numero" size="10" value="<?php echo $row['numero']; ?>"></label></p>
+            <p><label>Bairro:<input type="text" maxlength="30" name="bairro" size="30" value="<?php echo $row['bairro']; ?>"></label></p>
+            <p><label>Cidade:<input type="text" maxlength="30" name="cidade" size="30" value="<?php echo $row['cidade']; ?>"></label></p>           
+            <p><label>Estado:
             <select name="estado">   
                 <?php $estado = isset($row['estado']) ? strtoupper($row["estado"]) : ''?>                                            
-                <option value="ac"<?php if ($estado == "AC") echo " selected"; ?>>AC</option>
-                <option value="al"<?php if ($estado == "AL") echo " selected"; ?>>AL</option>
-                <option value="ap"<?php if ($estado == "AP") echo " selected"; ?>>AP</option>
-                <option value="am"<?php if ($estado == "AM") echo " selected"; ?>>AM</option>
-                <option value="ba"<?php if ($estado == "BA") echo " selected"; ?>>BA</option>
-                <option value="ce"<?php if ($estado == "CE") echo " selected"; ?>>CE</option>
-                <option value="df"<?php if ($estado == "DF") echo " selected"; ?>>DF</option>
-                <option value="es"<?php if ($estado == "ES") echo " selected"; ?>>ES</option>
-                <option value="go"<?php if ($estado == "GO") echo " selected"; ?>>GO</option>
-                <option value="ma"<?php if ($estado == "MA") echo " selected"; ?>>MA</option>
-                <option value="mt"<?php if ($estado == "MT") echo " selected"; ?>>MT</option>
-                <option value="ms"<?php if ($estado == "MS") echo " selected"; ?>>MS</option>
-                <option value="mg"<?php if ($estado == "MG") echo " selected"; ?>>MG</option>
-                <option value="pa"<?php if ($estado == "PA") echo " selected"; ?>>PA</option>
-                <option value="pb"<?php if ($estado == "PB") echo " selected"; ?>>PB</option>
-                <option value="pr"<?php if ($estado == "PR") echo " selected"; ?>>PR</option>
-                <option value="pe"<?php if ($estado == "PE") echo " selected"; ?>>PE</option>
-                <option value="pi"<?php if ($estado == "PI") echo " selected"; ?>>PI</option>                    
-                <option value="rj"<?php if ($estado == "RJ") echo " selected"; ?>>RJ</option>
-                <option value="rn"<?php if ($estado == "RN") echo " selected"; ?>>RN</option>
-                <option value="rs"<?php if ($estado == "RS") echo " selected"; ?>>RS</option>
-                <option value="ro"<?php if ($estado == "RO") echo " selected"; ?>>RO</option>
-                <option value="rr"<?php if ($estado == "RR") echo " selected"; ?>>RR</option>
-                <option value="sc"<?php if ($estado == "SC") echo " selected"; ?>>SC</option>
-                <option value="sp"<?php if ($estado == "SP") echo " selected"; ?>>SP</option>
-                <option value="se"<?php if ($estado == "SE") echo " selected"; ?>>SE</option>
-                <option value="to"<?php if ($estado == "TO") echo " selected"; ?>>TO</option>
+                <option value="AC"<?php if ($estado == "AC") echo " selected"; ?>>AC</option>
+                <option value="AL"<?php if ($estado == "AL") echo " selected"; ?>>AL</option>
+                <option value="AP"<?php if ($estado == "AP") echo " selected"; ?>>AP</option>
+                <option value="AM"<?php if ($estado == "AM") echo " selected"; ?>>AM</option>
+                <option value="BA"<?php if ($estado == "BA") echo " selected"; ?>>BA</option>
+                <option value="CE"<?php if ($estado == "CE") echo " selected"; ?>>CE</option>
+                <option value="DF"<?php if ($estado == "DF") echo " selected"; ?>>DF</option>
+                <option value="ES"<?php if ($estado == "ES") echo " selected"; ?>>ES</option>
+                <option value="GO"<?php if ($estado == "GO") echo " selected"; ?>>GO</option>
+                <option value="MA"<?php if ($estado == "MA") echo " selected"; ?>>MA</option>
+                <option value="MT"<?php if ($estado == "MT") echo " selected"; ?>>MT</option>
+                <option value="MS"<?php if ($estado == "MS") echo " selected"; ?>>MS</option>
+                <option value="MG"<?php if ($estado == "MG") echo " selected"; ?>>MG</option>
+                <option value="PA"<?php if ($estado == "PA") echo " selected"; ?>>PA</option>
+                <option value="PB"<?php if ($estado == "PB") echo " selected"; ?>>PB</option>
+                <option value="PR"<?php if ($estado == "PR") echo " selected"; ?>>PR</option>
+                <option value="PE"<?php if ($estado == "PE") echo " selected"; ?>>PE</option>
+                <option value="PI"<?php if ($estado == "PI") echo " selected"; ?>>PI</option>                    
+                <option value="RJ"<?php if ($estado == "RJ") echo " selected"; ?>>RJ</option>
+                <option value="RN"<?php if ($estado == "RN") echo " selected"; ?>>RN</option>
+                <option value="RS"<?php if ($estado == "RS") echo " selected"; ?>>RS</option>
+                <option value="RO"<?php if ($estado == "RO") echo " selected"; ?>>RO</option>
+                <option value="RR"<?php if ($estado == "RR") echo " selected"; ?>>RR</option>
+                <option value="SC"<?php if ($estado == "SC") echo " selected"; ?>>SC</option>
+                <option value="SP"<?php if ($estado == "SP") echo " selected"; ?>>SP</option>
+                <option value="SE"<?php if ($estado == "SE") echo " selected"; ?>>SE</option>
+                <option value="TO"<?php if ($estado == "TO") echo " selected"; ?>>TO</option>
             </select></label></p>
-            <p><label>Email<input type="email" maxlength="100" name="email" value="<?php echo $row['email']; ?>"></label></p>
-            <p><label>CPF/CNPJ<input type="text" maxlength="14" name="cpf_cnpj" value="<?php echo $row['cpf_cnpj']; ?>"></label></p>
-            <p><label>RG<input type="text" maxlength="9" name="rg" value="<?php echo $row['rg']; ?>"></label></p>
-            <p><label>Telefone<input type="text" maxlength="10" name="telefone" value="<?php echo $row['telefone']; ?>"></label></p>
-            <p><label>Celular<input type="text" maxlength="11" name="celular" value="<?php echo $row['celular']; ?>"></label></p>
-            <p><label>Data de Nascimento<input type="date" name="data_nasc" value="<?php echo $row['data_nasc']; ?>"></label></p>
-            <p><label>Salário<input type="number" step="200" name="salario" value="<?php echo $row['salario']; ?>"></label></p>
+            <p><label>Email: <input type="email" maxlength="50" name="email" size="50" value="<?php echo $row['email']; ?>"></label></p>
+            <p><label>CPF/CNPJ: <input type="text" maxlength="14" name="cpf_cnpj" size="14" value="<?php echo $row['cpf_cnpj']; ?>"></label></p>
+            <p><label>RG: <input type="text" maxlength="9" name="rg" size="9" value="<?php echo $row['rg']; ?>"></label></p>
+            <p><label>Telefone: <input type="text" maxlength="10" name="telefone" size="10" value="<?php echo $row['telefone']; ?>"></label></p>
+            <p><label>Celular: <input type="text" maxlength="11" name="celular" size="11" value="<?php echo $row['celular']; ?>"></label></p>
+            <p><label>Data de Nascimento: <input type="date" name="data_nasc" value="<?php echo $row['data_nasc']; ?>"></label></p>
+            <p><label>Salário: <input type="number" step="200" name="salario" size="14" value="<?php echo $row['salario']; ?>"></label></p>
         </div>
         <div class="botoes">
             <input type="submit" name="atualizar" value="Atualizar">

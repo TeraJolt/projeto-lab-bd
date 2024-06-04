@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
             echo "<p>Confirma a exclusão?</p>";                    
             echo "<input type='hidden' name='id' name='id' value='".$row['id']."'>";
             echo "<div class='botoes'>";
-                echo "<input type='submit' name='confirmar' value='Sim' class='atualizar'>";
+                echo "<input type='submit' name='confirmar' value='Sim' class='atualizar'> ";
                 echo "<input type='submit' name='cancelar' value='Não' class='cancelar'>";
             echo "</div>";    
         echo "</form>";
