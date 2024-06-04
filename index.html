@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Banco de Dados</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #F8F9FA;
+        }
+        .menu {
+            padding: 1% 5%;
+            display: flex;
+            justify-content: center;
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .menu ul li {
+            margin: 10px 0;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            font-size: 20pt;
+            font-weight: 700;
+            color: #007BFF;
+            transition: 0.15s;
+        }
+        .menu ul li a:hover {
+            color: #DC3545;
+            transform: scale(1.25);
+        }
+        .menu ul li a:visited {
+            color: #6C757D;
+        }
+        .menu ul li a:active {
+            color: #28A745;
+        }
+        .menu ul li a:disabled {
+            color: #6C757D;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        
+        <ul>
+            <li><h1>Menu</h1></li>
+            <li><hr></li>
+            <li><a href="cliente/consultarCliente.php">Cliente</a></li>
+            <li><a href="vendedor/consultarVendedor.php">Vendedor</a></li>
+            <li><a href="produto/consultarProduto.php">Produto</a></li>
+            <li><a href="pedido/consultarPedido.php">Pedido</a></li>
+            <li><a href="formaPagamento/consultarFormaPagamento.php">Forma de Pagamento</a></li>
+            <li><a href="pdf.php">Relatório de pedidos</a></li>
+            <li><a href="pdf2.php">Relatório de comissão</a></li>
+        </ul>
+    </div>
+</body>
+</html>
