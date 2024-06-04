@@ -6,9 +6,8 @@
         <title>Exibir de Forma Pagamento</title>
     </head>
     <body>
-        <h1>Exibir de Forma Pagamento</h1>
         <?php include('../navbar.php') ?>
-
+        <h1>Exibir de Forma Pagamento</h1>
         <form method="post">
             <table>
                 <?php

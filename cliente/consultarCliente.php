@@ -6,10 +6,7 @@
     <title>Cliente</title>
 </head>
 <body>
-    <?php include('../navbar.php');
-        $navBar = new NavBar;
-        $navBar->navBar();
-    ?>
+    <?php include('../navbar.php');?>
     <h1>Consultar Clientes</h1>
     <form>
         <label>Filtrar por Nome:</label>

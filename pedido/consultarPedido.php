@@ -37,6 +37,8 @@ if (isset($_GET['filtro_nome']) && $_GET['filtro_nome'] != '') {
         table {
             width: 100%;
             border-collapse: collapse;
+            border-style: double;
+            border-color: black;
         }
         th, td {
             padding: 8px;
@@ -59,18 +61,14 @@ if (isset($_GET['filtro_nome']) && $_GET['filtro_nome'] != '') {
     </style>
 </head>
 <body>
-    <?php 
-        include('../navbar.php');
-        $navBar = new NavBar;
-        $navBar->navBar();
-    ?>
+    <?php include('../navbar.php');?>
     <h1>Consulta Pedido</h1>
     <form method="$_GET">
         <h2>Filtro por data</h2>
         <label>Data inicila:</label>
-        <input type="text" id="filtro_dt_init" name="filtro_dt_init" ><br>
+        <input type="date" id="filtro_dt_init" name="filtro_dt_init" ><br>
         <label>Data final:</label>
-        <input type="text" id="filtro_dt_final" name="filtro_dt_final"><br>
+        <input type="date" id="filtro_dt_final" name="filtro_dt_final"><br>
         <h2>Filtro</h2>
         <label>Nome do cliente: </label>
         <input type="text" id="filtro_nome" name="filtro_nome" ><br>
@@ -80,14 +78,14 @@ if (isset($_GET['filtro_nome']) && $_GET['filtro_nome'] != '') {
     <table>
         <?php
             while($reg = mysqli_fetch_array($resu)){
-                echo"<fieldset><table width='100%' border='1px'><tr>
-                <th>Data</th>
-                <th>Cliente</th>
-                <th>Observação</th>
-                <th>Forma de Pagamento</th>
-                <th>Prazo de Entrega</th>
-                <th>Vendedor</th>
-                <th>Opções<th>
+                echo"<table width='100%' border='1px'><tr>
+                    <th>Data</th>
+                    <th>Cliente</th>
+                    <th>Observação</th>
+                    <th>Forma de Pagamento</th>
+                    <th>Prazo de Entrega</th>
+                    <th>Vendedor</th>
+                    <th>Opções</th>
                 </tr>
                 <tr>
                     <td>".$reg['data_ped']."</td>
@@ -115,7 +113,7 @@ if (isset($_GET['filtro_nome']) && $_GET['filtro_nome'] != '') {
                         <td>".$reg2['quantidade']."</td>
                     </tr>";
                 }
-                echo "</table></fieldset>";
+                echo "</table><br>";
             }
         ?>
     </form>

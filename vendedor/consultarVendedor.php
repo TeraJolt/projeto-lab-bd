@@ -9,8 +9,6 @@
     
     <?php 
         include('../navbar.php');
-        $navBar = new NavBar;
-        $navBar->navBar();
         include('tabelaVendedor.php');
     ?>
     <h1>Consulta Vendedor</h1>   

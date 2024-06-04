@@ -62,10 +62,7 @@
         }
     </script>
 </head>
-<?php include('../navbar.php');
-    $navBar = new NavBar;
-    $navBar->navBar();
-?>
+<?php include('../navbar.php');?>
 <body>
     <h1>Cadastro de Pedidos</h1>
     <form method="POST">

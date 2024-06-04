@@ -68,78 +68,44 @@
             }
         </style>
         <div class='box'></div>";
-
-            class Navbar{
-                public function navBar(){
-                    // Conteudo da Navbar
-                    echo
-                    "<div class='wrapper'>
-                        <ul>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Cliente</a>
-                                <div class='dropdown-content'>
-                                    <a href='../cliente/cadastrarCliente.php'>Cadastro</a>
-                                    <a href='../cliente/consultarCliente.php'>Consulta</a>
-                                </div>
-                            </li>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Vendedor</a>
-                                <div class='dropdown-content'>
-                                    <a href='../vendedor/cadastrarVendedor.php'>Cadastro</a>
-                                    <a href='../vendedor/consultarVendedor.php'>Consulta</a>
-                                </div>
-                            </li>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Produto</a>
-                                <div class='dropdown-content'>
-                                    <a href='../produto/cadastrarProduto.php'>Cadastro</a>
-                                    <a href='../produto/consultarProduto.php'>Consulta</a>
-                                </div>
-                            </li>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Pedido</a>
-                                <div class='dropdown-content'>
-                                    <a href='../pedido/cadastrarPedidov2.php'>Cadastro</a>
-                                    <a href='../pedido/consultarPedido.php'>Consulta</a>
-                                </div>
-                            </li>
-                        </ul></div>";
-                }
-                public function navBarIndex(){
-                    // Conteudo da Navbar
-                    echo
-                    "<div class='wrapper'>
-                        <ul>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Cliente</a>
-                                <div class='dropdown-content'>
-                                    <a href='cliente/cadastrarCliente.php'>Cadastro</a>
-                                    <a href='cliente/consultarCliente.php'>Consulta</a>
-                                </div>
-                            </li>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Vendedor</a>
-                                <div class='dropdown-content'>
-                                    <a href='vendedor/cadastrarVendedor.php'>Cadastro</a>
-                                    <a href='vendedor/consultarVendedor.php'>Consulta</a>
-                                </div>
-                            </li>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Produto</a>
-                                <div class='dropdown-content'>
-                                    <a href='produto/cadastrarProduto.php'>Cadastro</a>
-                                    <a href='produto/consultarProduto.php'>Consulta</a>
-                                </div>
-                            </li>
-                            <li class='dropdown'>
-                                <a href='javascript:void(0)' class='dropbtn'>Pedido</a>
-                                <div class='dropdown-content'>
-                                    <a href='pedido/cadastrarPedidov2.php'>Cadastro</a>
-                                    <a href='pedido/consultarPedido.php'>Consulta</a>
-                                </div>
-                            </li>
-                        </ul></div>";
-                }
-            }
+        echo
+        "<div class='wrapper'>
+            <ul>
+                <li class='dropdown'>
+                    <a href='javascript:void(0)' class='dropbtn'>Cliente</a>
+                    <div class='dropdown-content'>
+                        <a href='../cliente/cadastrarCliente.php'>Cadastro</a>
+                        <a href='../cliente/consultarCliente.php'>Consulta</a>
+                    </div>
+                </li>
+                <li class='dropdown'>
+                    <a href='javascript:void(0)' class='dropbtn'>Vendedor</a>
+                    <div class='dropdown-content'>
+                        <a href='../vendedor/cadastrarVendedor.php'>Cadastro</a>
+                        <a href='../vendedor/consultarVendedor.php'>Consulta</a>
+                    </div>
+                </li>
+                <li class='dropdown'>
+                    <a href='javascript:void(0)' class='dropbtn'>Produto</a>
+                    <div class='dropdown-content'>
+                        <a href='../produto/cadastrarProduto.php'>Cadastro</a>
+                        <a href='../produto/consultarProduto.php'>Consulta</a>
+                    </div>
+                </li>
+                <li class='dropdown'>
+                    <a href='javascript:void(0)' class='dropbtn'>Pedido</a>
+                    <div class='dropdown-content'>
+                        <a href='../pedido/cadastrarPedidov2.php'>Cadastro</a>
+                        <a href='../pedido/consultarPedido.php'>Consulta</a>
+                    </div>
+                </li>
+                <li class='dropdown'>
+                    <a href='javascript:void(0)' class='dropbtn'>Forma de Pagamento</a>
+                    <div class='dropdown-content'>
+                        <a href='../formaPagamento/cadastrarFormaPagamento.php'>Cadastro</a>
+                        <a href='../formaPagamento/consultarFormaPagamento.php'>Consulta</a>
+                    </div>
+                </li>
+            </ul></div>";
 
 ?>

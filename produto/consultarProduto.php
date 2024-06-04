@@ -7,10 +7,7 @@
     </head>
     <body>
         
-        <?php include('../navbar.php');
-            $navBar = new NavBar;
-            $navBar->navBar();
-        ?>
+        <?php include('../navbar.php');?>
         <h1>Exibir de Produto</h1>
         <form>
             <label>Filtrar por Nome:</label>

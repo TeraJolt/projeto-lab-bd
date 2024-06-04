@@ -1,4 +1,5 @@
 <?php
+include('../navbar.php');
 if (isset($_GET['id'])) {
     include('../conexao.php');
 

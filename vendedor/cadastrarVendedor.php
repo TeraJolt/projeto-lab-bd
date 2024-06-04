@@ -6,9 +6,9 @@
     <title>Cadastro Vendedor</title>
     
 </head>
-
 <body>
     <?php
+        include('../navbar.php');
         if ($_SERVER["REQUEST_METHOD"]=="POST"){
             include('../conexao.php');
 
@@ -32,10 +32,7 @@
             mysqli_close($con);
         }
     ?>
-    <?php include('../navbar.php');
-        $navBar = new NavBar;
-        $navBar->navBar();
-    ?>
+
     <h1>Cadastro de Vendedor</h1>
     <form method="POST">
         <p><label>Nome: <input type="text" name="nome" size="50" maxlength="100" required></label></p>

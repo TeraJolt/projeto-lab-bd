@@ -67,12 +67,8 @@ if (isset($_GET['id'])) {
     <title>Cliente</title>
 </head>
 <body>
+    <?php include('../navbar.php');?>
     <h1>Atualizar Clientes</h1>
-    <?php 
-        include('../navbar.php');
-        $navBar = new NavBar;
-        $navBar->navBar();    
-    ?>
     <form method="POST">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">                
         <div class="formulario">

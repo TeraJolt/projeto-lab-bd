@@ -32,10 +32,7 @@
 </head>
 <body>
     
-    <?php include('../navbar.php');
-        $navBar = new NavBar;
-        $navBar->navBar();
-    ?>
+    <?php include('../navbar.php');?>
     <h1>Excluir produto</h1>
     <?php
         if(isset($_GET['id'])){

@@ -31,9 +31,8 @@
     <title>Excluir Forma Pagamento</title>
 </head>
 <body>
-    <h1>Excluir Forma Pagamento</h1>
     <?php include('../navbar.php') ?>
-
+    <h1>Excluir Forma Pagamento</h1>
     <?php
         if(isset($_GET['id'])){
             include('../conexao.php');

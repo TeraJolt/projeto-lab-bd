@@ -7,10 +7,7 @@
 </head>
 <body>
     
-    <?php include('../navbar.php');
-        $navBar = new NavBar;
-        $navBar->navBar();
-    ?>
+    <?php include('../navbar.php');?>
     <h1>Atualizar Produto</h1>
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && ISSET($_POST['atualizar'])) {

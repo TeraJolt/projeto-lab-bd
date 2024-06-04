@@ -1,4 +1,12 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pedido</title>
+    
+</head>
+<?php include('../navbar.php');
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $data_ped=$_POST["data_ped"];
         $id_cliente=$_POST["id_cliente"];
@@ -31,19 +39,6 @@
         }
         mysqli_close($con);
     }
-?>
-<!DOCTYPE html>
-<html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Pedido</title>
-    
-</head>
-<?php 
-    include('../navbar.php');
-    $navBar = new NavBar;
-    $navBar->navBar();
 ?>
 <body>
     <h1>Cadastro de Pedidos</h1>

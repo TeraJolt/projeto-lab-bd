@@ -26,9 +26,8 @@
         <title>Cadastro de Forma Pagamento</title>
     </head>
     <body>
-        <h1>Cadastro de Forma Pagamento</h1>
         <?php include('../navbar.php') ?>
-
+        <h1>Cadastro de Forma Pagamento</h1>
         <form method="post">
             <p><label>Nome: <input type="text" maxlength="100" name="nome" id="nome"> </label></p>
             <input type="submit" value="Cadastrar">
