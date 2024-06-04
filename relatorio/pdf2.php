@@ -1,5 +1,5 @@
 <?php
-    include_once("conexao.php");
+    include_once("../conexao.php");
 
     $sql_vendedor="SELECT id, nome, perc_comissao FROM tb_vendedor ORDER BY id";
     $resultado=mysqli_query($con,$sql_vendedor) or die("Erro ao retornar dados");
