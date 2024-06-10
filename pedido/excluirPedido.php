@@ -1,36 +1,3 @@
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sim'])) {
-        include('../conexao.php');
-
-        $id = $_POST["id"];
-
-        $query1 = "DELETE FROM tb_itens_pedido WHERE id_pedido = $id";
-        $query2 = "DELETE FROM tb_pedido WHERE id = $id";
-
-        $result1 = mysqli_query($con, $query1);
-
-        if($result1) {
-            echo "Itens excluídos com sucesso!";
-            $result2 = mysqli_query($con, $query2);
-            if($result2) {
-                echo "Pedido excluido com sucesso!";
-            }else {
-                echo "Erro ao excluir o pedido!".mysqli_error($con);
-            }
-        }else{
-            echo "Erro ao excluir os itens: ".mysqli_error($con);
-        }
-
-
-        mysqli_close($con);
-
-        header("Location: consultarPedido.php");
-
-    }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nao'])) {
-        header("Location: consultarPedido.php");
-        exit;
-    }
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,8 +6,41 @@
     <title>Exclusão de Pedido</title>
 </head>
 <body>
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sim'])) {
+            include('../conexao.php');
+
+            $id = $_POST["id"];
+
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            include("../conexao.php");
+            mysqli_begin_transaction($con) or die(mysqli_connect_error());
+            try{
+                $query_item = "DELETE FROM tb_itens_pedido WHERE id_pedido = $id";
+                $resu1 = mysqli_query($con,$query_item);
+                
+                $query = "DELETE FROM tb_pedido WHERE id = $id";
+                $result = mysqli_query($con,$query);
+
+                mysqli_commit($con);
+                echo "<p>Pedido excluido com sucesso</p>";
+
+            }
+            catch(mysqli_sql_exception $exeption){
+                mysqli_rollback($con);
+                echo "<p>Erro ao excluir o pedido!</p>".$exeption;
+            }
+            mysqli_close($con);
+
+            header("Location: consultarPedido.php");
+
+        }elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nao'])) {
+            header("Location: consultarPedido.php");
+            exit;
+        }
+        include('../navbar.php');
+    ?>
     <h1>Excluir pedido</h1>
-    <?php include('../navbar.php');?>
     <?php
         if(isset($_GET['pedido_id'])){
             include('../conexao.php');

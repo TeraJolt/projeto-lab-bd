@@ -6,9 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include('../navbar.php') ?>
-    <h1>Atualizar Produto</h1>
-    <?php
+<?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && ISSET($_POST['atualizar'])) {
             
             include('../conexao.php');
@@ -34,6 +32,8 @@
             header("Location: consultarFormaPagamento.php");
         }
     ?>
+    <?php include('../navbar.php') ?>
+    <h1>Atualizar Produto</h1> 
     <?php
 
         if(isset($_GET['id'])){

@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
-    <?php include('../navbar.php');?>
-    <h1>Atualizar Produto</h1>
+
+<body> 
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && ISSET($_POST['atualizar'])) {
             
@@ -20,8 +18,6 @@
             $preco = $_POST['preco'];
             $medida = $_POST['medida'];
             $promocao = $_POST['promocao'];
-
-            
 
             $query = "UPDATE tb_produto SET nome = '$nome', qtde_estoque = '$qtde', preco = '$preco', unidade_medida = '$medida', promocao = '$promocao'  WHERE id = $id";
 
@@ -39,6 +35,8 @@
             header("Location: consultarProduto.php");
         }
     ?>
+    <?php include('../navbar.php');?>
+    <h1>Atualizar Produto</h1>
     <?php
 
         if(isset($_GET['id'])){

@@ -49,11 +49,14 @@
             }
             .title{
                 display: flex;
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
                 text-align: center;
-                background-color: #003366;
-                color: #ffffff;
+                background-color: #778797;
                 padding: 10px 50px;
+            }
+            .title a {
+                color: #ffffff;
+                text-decoration: none;
+                font-family: Verdana;
                 font-size: 30px;
                 font-weight: bold;
             }
@@ -71,6 +74,7 @@
         echo
         "<div class='wrapper'>
             <ul>
+                <div class='title'><a href='../index.html'>Home</a></div>
                 <li class='dropdown'>
                     <a href='javascript:void(0)' class='dropbtn'>Cliente</a>
                     <div class='dropdown-content'>
@@ -106,6 +110,13 @@
                         <a href='../formaPagamento/consultarFormaPagamento.php'>Consulta</a>
                     </div>
                 </li>
+                <li class='dropdown'>
+                    <a href='javascript:void(0)' class='dropbtn'>Relatórios</a>
+                    <div class='dropdown-content'>
+                        <a href='../relatorio/relatorioPedido.php'>Pedidos</a>
+                        <a href='../relatorio/relatorioVendedores.php'>Vendedores</a>
+                    </div>
+                </li>
             </ul></div>";
-
+        
 ?>

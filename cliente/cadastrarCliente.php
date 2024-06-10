@@ -1,4 +1,6 @@
 <?php
+    include('../navbar.php');
+
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         include('../conexao.php');
 
@@ -41,7 +43,6 @@
     <title>Cliente</title>
 </head>
 <body>
-    <?php include('../navbar.php');?>
     <h1>Cadastrar Cliente</h1>
     <form method="POST">
         <p><label>Nome: <input type="text" maxlength="50" name="nome" size="50"></label></p>

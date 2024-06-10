@@ -1,8 +1,31 @@
+<?php         
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar'])) {
+    include('../conexao.php');
+
+    $id=$_POST["id"];                
+    
+    $query="DELETE FROM tb_cliente WHERE id=$id";
+
+    $result=mysqli_query($con,$query);
+
+    if ($result) {
+        echo "Paciente exluido com sucesso!";
+    } else {
+        echo "ERRO ao excluir o paciente: ".mysqli_error($con);
+    }
+
+    mysqli_close($con);
+
+    header("Location: consultarCliente.php");
+} elseif ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['cancelar'])) {
+    header("Location: consultarCliente.php");
+    exit;
+}
+?>
 <?php
 include('../navbar.php');
 if (isset($_GET['id'])) {
     include('../conexao.php');
-
     $id=$_GET['id'];
 
     $query="SELECT * FROM tb_cliente WHERE id=$id";
@@ -29,28 +52,4 @@ if (isset($_GET['id'])) {
 } else {
     echo "ID do paciente não especificado.";
 }    
-?>
-<?php         
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar'])) {
-    include('../conexao.php');
-
-    $id=$_POST["id"];                
-    
-    $query="DELETE FROM tb_cliente WHERE id=$id";
-
-    $result=mysqli_query($con,$query);
-
-    if ($result) {
-        echo "Paciente exluido com sucesso!";
-    } else {
-        echo "ERRO ao excluir o paciente: ".mysqli_error($con);
-    }
-
-    mysqli_close($con);
-
-    header("Location: consultarCliente.php");
-} elseif ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['cancelar'])) {
-    header("Location: consultarCliente.php");
-    exit;
-}
 ?>

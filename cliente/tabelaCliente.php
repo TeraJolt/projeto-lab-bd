@@ -1,5 +1,5 @@
 <?php
-    echo "<table>";
+    echo "<table border='1px' width='100%'>";
         $resu = mysqli_query($con,$query) or die(mysqli_connect_error());
 
         echo "<tr>";
