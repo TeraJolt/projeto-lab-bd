@@ -1,10 +1,17 @@
 <?php
-    include_once("../conexao.php");
+    include_once("../conexao.php");    
+
     $sql="SELECT p.id, p.data_ped, p.observacao, p.forma_pagto, p.prazo_entrega, c.nome AS cliente, v.nome AS vendedor, f.nome AS pagto FROM tb_pedido p 
     INNER JOIN tb_cliente c ON p.id_cliente = c.id 
     INNER JOIN tb_vendedor v ON p.id_vendedor = v.id
-    INNER JOIN tb_forma_pagto f ON p.forma_pagto = f.id
-    ORDER BY p.id";
+    INNER JOIN tb_forma_pagto f ON p.forma_pagto = f.id";
+    if(isset($_POST['dataInicio']) && isset($_POST['dataFim'])) {
+        $dataInicio=$_POST['dataInicio'];
+        $dataFim=$_POST['dataFim'];
+        $sql.=" WHERE p.data_ped > '$dataInicio' AND p.data_ped < '$dataFim'";
+    }
+    $sql.="ORDER BY p.id";
+    
     $resultado=mysqli_query($con,$sql) or die("Erro ao retornar dados");
     
 

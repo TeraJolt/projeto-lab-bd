@@ -10,7 +10,13 @@
         $id_vendedor=$registro['id'];
 
         //Obtendo os dados para o calculo das vendas e calculo da comissão
-        $sql_pedidos="SELECT id FROM tb_pedido WHERE id_vendedor = $id_vendedor";
+        $sql_pedidos="SELECT id, data_ped FROM tb_pedido WHERE id_vendedor = $id_vendedor AND ";
+        if(isset($_POST['dataInicio']) && isset($_POST['dataFim'])) {
+            $dataInicio=$_POST['dataInicio'];
+            $dataFim=$_POST['dataFim'];
+            $sql_pedidos.="data_ped > '$dataInicio' AND data_ped < '$dataFim'";
+        }
+        $sql_vendedor.="";
         $resultado2=mysqli_query($con,$sql_pedidos) or die("Erro ao retornar dados");
 
         $totVendido=0;        
