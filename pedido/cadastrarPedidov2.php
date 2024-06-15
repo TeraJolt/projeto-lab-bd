@@ -25,13 +25,27 @@
             VALUES ('$data_ped', '$id_cliente', '$observacao', '$forma_pagto', '$prazo_entrega', '$id_vendedor')";
             $result = mysqli_query($con,$query);
             $id_pedido = mysqli_insert_id($con);
+            $verificador = true;
             for($i = 0; $i < count($id_produto); $i++){
-                $query_item = "INSERT INTO tb_itens_pedido (id_pedido, id_produto, qtde) VALUES ('$id_pedido','$id_produto[$i]',$qtde[$i])";
-                $resu1 = mysqli_query($con,$query_item);
+                $query_produto_select = "SELECT qtde_estoque, nome FROM tb_produto WHERE id = '$id_produto[$i]'";
+                $resu_produto = mysqli_query($con,$query_produto_select);
+                $reg_produto = mysqli_fetch_array($resu_produto);
+                if($reg_produto['qtde_estoque'] >= $qtde[$i]){
+                    $qtde_nova = $reg_produto['qtde_estoque'] - $qtde[$i];
+                    $query_produto_update = "UPDATE tb_produto SET qtde_estoque = '$qtde_nova' WHERE id = '$id_produto[$i]'";
+                    $resu_produto_update = mysqli_query($con,$query_produto_update);
+                    $query_item_insert = "INSERT INTO tb_itens_pedido (id_pedido, id_produto, qtde) VALUES ('$id_pedido','$id_produto[$i]',$qtde[$i])";
+                    $resu1 = mysqli_query($con,$query_item_insert);
+                }else{
+                    $verificador = false;
+                    mysqli_rollback($con);
+                    echo "<p>Quantidade de ".$reg_produto['nome']." Insuficiente</p>";
+                }
             }
-            mysqli_commit($con);
-            echo "<p>Pedido cadastrado com sucesso</p>";
-
+            if($verificador == true){
+                mysqli_commit($con);
+                echo "<p>Pedido cadastrado com sucesso</p>";
+            }
         }
         catch(mysqli_sql_exception $exeption){
             mysqli_rollback($con);
